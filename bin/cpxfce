@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+cp "${HOME}/.config/xfce4/xfconf/xfce-perchannel-xml/$1" dot_config/xfce4/xfconf/private_xfce-perchannel-xml

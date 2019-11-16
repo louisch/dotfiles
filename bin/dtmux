@@ -1,0 +1,6 @@
+#!/bin/bash
+tmux new-session -d -n first
+tmux split-window -h
+#tmux new-window -n second
+#tmux select-window -t second
+tmux -2 attach-session -d

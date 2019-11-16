@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+TMUXINATORDIR="${HOME}/.local/share/chezmoi/dot_config/tmuxinator"
+
+
+__ScriptVersion="0.0.1"
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+    echo "Usage :  $0 [options] [--] {PROJECT-NAME}
+
+    Options:
+    -h|help       Display this message
+    -v|version    Display script version
+
+    {PROJECT-NAME} is the name of the tmuxinator project to be created.
+    "
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+while getopts ":hv" opt
+do
+  case $opt in
+
+    h|help     )  usage; exit 0   ;;
+
+    v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+
+    * )  echo -e "\n  Option does not exist : $OPTARG\n"
+          usage; exit 1   ;;
+
+  esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
+
+
+
+if [[ -z "$1" ]]; then
+    echo -e "Error: No project name provided"
+    usage
+    exit 1
+fi
+
+if [[ -f "${TMUXINATORDIR}/$1" ]]; then
+    echo "Project file ${TMUXINATORDIR}/$1 already exists. Editing instead."
+    eval "${EDITOR}" "${TMUXINATORDIR}/$1"
+    exit 0
+fi
+
+if [[ -z "${EDITOR}" ]]; then
+    echo -e 'Error: $EDITOR is not set. Please set the editor you would like to use to edit the project file.'
+    exit 1
+fi
+
+cp "${TMUXINATORDIR}/templates/default.template.yml" "${TMUXINATORDIR}/$1" &&
+eval "${EDITOR}" "${TMUXINATORDIR}/$1"
