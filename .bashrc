@@ -9,4 +9,9 @@ source "${HOME}/.bash_profile"
 
 source "${HOME}/.aliases"
 
-PS1='[\u@\h \W]\$ '
+# Set up Node Version Manager
+#source /usr/share/nvm/init-nvm.sh
+
+## Main mechanism for managing dot files
+## https://atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
