@@ -18,8 +18,8 @@ set omnifunc=syntaxcomplete#Complete
 
 "" Indentation
 set expandtab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 
 " After opening file, check whether tabs or spaces should be used
 autocmd BufReadPost * call has#TabsOrSpaces()
@@ -76,17 +76,8 @@ augroup END
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 "" Filetype
-autocmd FileType
-      \ vim,
-       \sh,
-       \html,css,javascript,
-       \scss,
-       \typescript,
-       \vue,
-       \json,
-       \php,
-       \yaml
-      \ setlocal shiftwidth=2 tabstop=2
+autocmd FileType python,yaml,java
+      \ setlocal shiftwidth=4 tabstop=4
 autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
 " filetypes for chezmoi templates
 autocmd Filetype *.tmpl set filetype=ignored
