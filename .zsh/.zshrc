@@ -67,7 +67,7 @@ ZSH_DISABLE_COMPFIX=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(adb colored-man-pages colorize command-not-found git git-flow history-substring-search tmuxinator zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(adb cfg colored-man-pages colorize command-not-found git git-flow history-substring-search tmuxinator zsh-autosuggestions zsh-syntax-highlighting)
 
 source "${ZSH}/oh-my-zsh.sh"
 
