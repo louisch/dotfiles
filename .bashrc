@@ -2,11 +2,11 @@
 # ~/.bashrc
 #
 
+source "${HOME}/.bash_profile"
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+source "${HOME}/.aliases"
 
-# Set up Node Version Manager
-#source /usr/share/nvm/init-nvm.sh
+PS1='[\u@\h \W]\$ '

@@ -1,0 +1,23 @@
+# Set personal aliases
+
+## Main mechanism for managing dot files
+## https://atlassian.com/git/tutorials/dotfiles
+alias config='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
+
+alias sudo='sudo ' # Allows sudo to be used with aliases
+alias pacS="pacman -S --assume-installed nodejs=10.15.3"
+case `uname` in
+    Linux)
+        alias cliprsa="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
+        ;;
+    Darwin)
+        alias cliprsa="pbcopy < ~/.ssh/id_rsa.pub"
+        ;;
+esac
+alias open="xdg-open"
+alias tx="tmuxinator"
+alias whatismyip="curl https://ipinfo.io/ip"
+alias myip="whatismyip"
+alias ls="exa"
+alias la="exa -la"
+alias l="exa -lh --git"

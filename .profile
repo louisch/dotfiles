@@ -1,3 +1,5 @@
+export XDG_CONFIG_HOME="${HOME}/.config"
+
 # Path for fresh
 export PATH="${PATH}:${HOME}/bin"
 
@@ -21,6 +23,8 @@ export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 # Node
 export PATH="${HOME}/.node_modules/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.yarn/bin"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # PHP
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
@@ -52,9 +56,5 @@ case `uname` in
     # Locales
     export LC_ALL=en_US.UTF-8
     export LANG=en_US.UTF-8
-
-    # NVM
-    export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
     ;;
 esac

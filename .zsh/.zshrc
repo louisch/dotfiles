@@ -92,32 +92,8 @@ source "${ZSH}/oh-my-zsh.sh"
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-## Main mechanism for managing dot files
-## https://atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
-
-alias sudo='sudo ' # Allows sudo to be used with aliases
-alias pacS="pacman -S --assume-installed nodejs=10.15.3"
-case `uname` in
-    Linux)
-        alias cliprsa="cat ~/.ssh/id_rsa.pub | xclip -sel clip"
-        ;;
-    Darwin)
-        alias cliprsa="pbcopy < ~/.ssh/id_rsa.pub"
-        ;;
-esac
-alias open="xdg-open"
-alias tx="tmuxinator"
-alias whatismyip="curl https://ipinfo.io/ip"
-alias myip="whatismyip"
-alias ls="exa"
-alias la="exa -la"
-alias l="exa -lh --git"
+source "${HOME}/.aliases"
 
 
 # Bindings
