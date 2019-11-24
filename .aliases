@@ -18,6 +18,9 @@ alias open="xdg-open"
 alias tx="tmuxinator"
 alias whatismyip="curl https://ipinfo.io/ip"
 alias myip="whatismyip"
-alias ls="exa"
-alias la="exa -la"
-alias l="exa -lh --git"
+
+if command -v exa; then
+  alias ls="exa"
+  alias la="exa -la"
+  alias l="exa -lh --git"
+fi
