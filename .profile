@@ -47,6 +47,9 @@ export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
+# Rust
+export PATH="${PATH}:${HOME}/.cargo/bin"
+
 # MacOS specific
 case `uname` in
   Darwin)
