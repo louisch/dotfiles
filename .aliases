@@ -19,7 +19,7 @@ alias tx="tmuxinator"
 alias whatismyip="curl https://ipinfo.io/ip"
 alias myip="whatismyip"
 
-if command -v exa; then
+if command -v exa 1>/dev/null; then
   alias ls="exa"
   alias la="exa -la"
   alias l="exa -lh --git"
