@@ -105,22 +105,6 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 
-# Set up Node Version Manager
-case `uname` in
-    Linux)
-        source /usr/share/nvm/init-nvm.sh
-        # Uncomment if on Ubuntu
-        export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-        # Uncomment as well if on Arch Linux
-        export NVM_SOURCE="/usr/share/nvm"                     # The AUR package installs it to here.
-        ;;
-    Darwin)
-        # Done in profile
-        ;;
-esac
-
-
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=242,bg=8"
 ZSH_AUTOSUGGEST_USE_ASYNC="true"
