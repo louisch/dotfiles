@@ -2,7 +2,7 @@
 
 ## Main mechanism for managing dot files
 ## https://atlassian.com/git/tutorials/dotfiles
-alias config='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
+alias dotcfg='/usr/bin/git --git-dir="$HOME/.cfg/" --work-tree="$HOME"'
 
 alias sudo='sudo ' # Allows sudo to be used with aliases
 alias pacS="pacman -S --assume-installed nodejs=10.15.3"

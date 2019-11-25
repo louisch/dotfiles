@@ -13,13 +13,13 @@ function current_branch() {
 # Pretty log messages
 function _cfggit_log_prettily(){
   if ! [ -z $1 ]; then
-    config log --pretty=$1
+    dotcfg log --pretty=$1
   fi
 }
 
 # Warn if the current branch is a WIP
-function work_in_progress() {
-  if $(config log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
+function cfg_work_in_progress() {
+  if $(dotcfg log -n 1 2>/dev/null | grep -q -c "\-\-wip\-\-"); then
     echo "WIP!!"
   fi
 }
@@ -29,222 +29,222 @@ function work_in_progress() {
 # (sorted alphabetically)
 #
 
-alias c='config'
+alias cfg='dotcfg'
 
-alias ca='config add'
-alias caa='config add --all'
-alias capa='config add --patch'
-alias cau='config add --update'
-alias cav='config add --verbose'
-alias cap='config apply'
+alias cfga='dotcfg add'
+alias cfgaa='dotcfg add --all'
+alias cfgapa='dotcfg add --patch'
+alias cfgau='dotcfg add --update'
+alias cfgav='dotcfg add --verbose'
+alias cfgap='dotcfg apply'
 
-alias cb='config branch'
-alias cba='config branch -a'
-alias cbd='config branch -d'
-alias cbda='config branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 config branch -d'
-alias cbD='config branch -D'
-alias cbl='config blame -b -w'
-alias cbnm='config branch --no-merged'
-alias cbr='config branch --remote'
-alias cbs='config bisect'
-alias cbsb='config bisect bad'
-alias cbsg='config bisect good'
-alias cbsr='config bisect reset'
-alias cbss='config bisect start'
+alias cfgb='dotcfg branch'
+alias cfgba='dotcfg branch -a'
+alias cfgbd='dotcfg branch -d'
+alias cfgbda='dotcfg branch --no-color --merged | command grep -vE "^(\+|\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 dotcfg branch -d'
+alias cfgbD='dotcfg branch -D'
+alias cfgbl='dotcfg blame -b -w'
+alias cfgbnm='dotcfg branch --no-merged'
+alias cfgbr='dotcfg branch --remote'
+alias cfgbs='dotcfg bisect'
+alias cfgbsb='dotcfg bisect bad'
+alias cfgbsg='dotcfg bisect good'
+alias cfgbsr='dotcfg bisect reset'
+alias cfgbss='dotcfg bisect start'
 
-alias cc='config commit -v'
-alias cc!='config commit -v --amend'
-alias ccn!='config commit -v --no-edit --amend'
-alias cca='config commit -v -a'
-alias cca!='config commit -v -a --amend'
-alias ccan!='config commit -v -a --no-edit --amend'
-alias ccans!='config commit -v -a -s --no-edit --amend'
-alias ccam='config commit -a -m'
-alias ccsm='config commit -s -m'
-alias ccb='config checkout -b'
-alias ccf='config config --list'
-alias ccl='config clone --recurse-submodules'
-alias cclean='config clean -id'
-alias cpristine='config reset --hard && config clean -dfx'
-alias ccm='config checkout master'
-alias ccd='config checkout develop'
-alias ccmsg='config commit -m'
-alias cco='config checkout'
-alias ccount='config shortlog -sn'
-alias ccp='config cherry-pick'
-alias ccpa='config cherry-pick --abort'
-alias ccpc='config cherry-pick --continue'
-alias ccs='config commit -S'
+alias cfgc='dotcfg commit -v'
+alias cfgc!='dotcfg commit -v --amend'
+alias cfgcn!='dotcfg commit -v --no-edit --amend'
+alias cfgca='dotcfg commit -v -a'
+alias cfgca!='dotcfg commit -v -a --amend'
+alias cfgcan!='dotcfg commit -v -a --no-edit --amend'
+alias cfgcans!='dotcfg commit -v -a -s --no-edit --amend'
+alias cfgcam='dotcfg commit -a -m'
+alias cfgcsm='dotcfg commit -s -m'
+alias cfgcb='dotcfg checkout -b'
+alias cfgcf='dotcfg dotcfg --list'
+alias cfgcl='dotcfg clone --recurse-submodules'
+alias cfgclean='dotcfg clean -id'
+alias cfgpristine='dotcfg reset --hard && dotcfg clean -dfx'
+alias cfgcm='dotcfg checkout master'
+alias cfgcd='dotcfg checkout develop'
+alias cfgcmsg='dotcfg commit -m'
+alias cfgco='dotcfg checkout'
+alias cfgcount='dotcfg shortlog -sn'
+alias cfgcp='dotcfg cherry-pick'
+alias cfgcpa='dotcfg cherry-pick --abort'
+alias cfgcpc='dotcfg cherry-pick --continue'
+alias cfgcs='dotcfg commit -S'
 
-alias cdd='config diff'
-alias cdca='config diff --cached'
-alias cdcw='config diff --cached --word-diff'
-alias cdct='config describe --tags $(config rev-list --tags --max-count=1)'
-alias cds='config diff --staged'
-alias cdt='config diff-tree --no-commit-id --name-only -r'
-alias cdw='config diff --word-diff'
+alias cfgdd='dotcfg diff'
+alias cfgdca='dotcfg diff --cached'
+alias cfgdcw='dotcfg diff --cached --word-diff'
+alias cfgdct='dotcfg describe --tags $(dotcfg rev-list --tags --max-count=1)'
+alias cfgds='dotcfg diff --staged'
+alias cfgdt='dotcfg diff-tree --no-commit-id --name-only -r'
+alias cfgdw='dotcfg diff --word-diff'
 
-function cdv() { config diff -w "$@" | view - }
+function cfgdv() { dotcfg diff -w "$@" | view - }
 
-alias cf='config fetch'
-alias cfa='config fetch --all --prune'
-alias cfo='config fetch origin'
+alias cfgf='dotcfg fetch'
+alias cfgfa='dotcfg fetch --all --prune'
+alias cfgfo='dotcfg fetch origin'
 
-alias cfg='config ls-files | grep'
+alias cfgfg='dotcfg ls-files | grep'
 
-alias cg='config gui citool'
-alias cga='config gui citool --amend'
+alias cfgg='dotcfg gui citool'
+alias cfgga='dotcfg gui citool --amend'
 
-function cgf() {
+function cfggf() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  config push --force origin "${b:=$1}"
+  dotcfg push --force origin "${b:=$1}"
 }
 
-function cgfl() {
+function cfggfl() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  config push --force-with-lease origin "${b:=$1}"
+  dotcfg push --force-with-lease origin "${b:=$1}"
 }
 
-function cgl() {
+function cfggl() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    config pull origin "${*}"
+    dotcfg pull origin "${*}"
   else
     [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    config pull origin "${b:=$1}"
+    dotcfg pull origin "${b:=$1}"
   fi
 }
 
-function cgp() {
+function cfggp() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
-    config push origin "${*}"
+    dotcfg push origin "${*}"
   else
     [[ "$#" == 0 ]] && local b="$(git_current_branch)"
-    config push origin "${b:=$1}"
+    dotcfg push origin "${b:=$1}"
   fi
 }
 
-function cgpnp() {
+function cfggpnp() {
   if [[ "$#" == 0 ]]; then
-    cgl && cgp
+    cfggl && cfggp
   else
-    cgl "${*}" && cgp "${*}"
+    cfggl "${*}" && cfggp "${*}"
   fi
 }
 
-function cgu() {
+function cfggu() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
-  config pull --rebase origin "${b:=$1}"
+  dotcfg pull --rebase origin "${b:=$1}"
 }
 
-alias cgpur='cgu'
-alias cgpull='config pull origin "$(git_current_branch)"'
-alias cgpush='config push origin "$(git_current_branch)"'
+alias cfggpur='cfggu'
+alias cfggpull='dotcfg pull origin "$(git_current_branch)"'
+alias cfggpush='dotcfg push origin "$(git_current_branch)"'
 
-alias cgsup='config branch --set-upstream-to=origin/$(git_current_branch)'
-alias cpsup='config push --set-upstream origin $(git_current_branch)'
+alias cfggsup='dotcfg branch --set-upstream-to=origin/$(git_current_branch)'
+alias cfgpsup='dotcfg push --set-upstream origin $(git_current_branch)'
 
-alias chh='config help'
+alias cfghh='dotcfg help'
 
-alias cignore='config update-index --assume-unchanged'
-alias cignored='config ls-files -v | grep "^[[:lower:]]"'
-alias cit-svn-dcommit-push='config svn dcommit && config push github master:svntrunk'
+alias cfgignore='dotcfg update-index --assume-unchanged'
+alias cfgignored='dotcfg ls-files -v | grep "^[[:lower:]]"'
+alias cfgit-svn-dcommit-push='dotcfg svn dcommit && dotcfg push github master:svntrunk'
 
-alias ck='\gitk --all --branches'
-alias cke='\gitk --all $(config log -g --pretty=%h)'
+alias cfgk='\gitk --all --branches'
+alias cfgke='\gitk --all $(dotcfg log -g --pretty=%h)'
 
-alias cl='config pull'
-alias clg='config log --stat'
-alias clgp='config log --stat -p'
-alias clgg='config log --graph'
-alias clgga='config log --graph --decorate --all'
-alias clgm='config log --graph --max-count=10'
-alias clo='config log --oneline --decorate'
-alias clol="config log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
-alias clols="config log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat"
-alias clod="config log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
-alias clods="config log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
-alias clola="config log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
-alias clog='config log --oneline --decorate --graph'
-alias cloga='config log --oneline --decorate --graph --all'
-alias clp="_cfggit_log_prettily"
+alias cfgl='dotcfg pull'
+alias cfglg='dotcfg log --stat'
+alias cfglgp='dotcfg log --stat -p'
+alias cfglgg='dotcfg log --graph'
+alias cfglgga='dotcfg log --graph --decorate --all'
+alias cfglgm='dotcfg log --graph --max-count=10'
+alias cfglo='dotcfg log --oneline --decorate'
+alias cfglol="dotcfg log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
+alias cfglols="dotcfg log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat"
+alias cfglod="dotcfg log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
+alias cfglods="dotcfg log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias cfglola="dotcfg log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
+alias cfglog='dotcfg log --oneline --decorate --graph'
+alias cfgloga='dotcfg log --oneline --decorate --graph --all'
+alias cfglp="_cfggit_log_prettily"
 
-alias cm='config merge'
-alias cmom='config merge origin/master'
-alias cmt='config mergetool --no-prompt'
-alias cmtvim='config mergetool --no-prompt --tool=vimdiff'
-alias cmum='config merge upstream/master'
-alias cma='config merge --abort'
+alias cfgm='dotcfg merge'
+alias cfgmom='dotcfg merge origin/master'
+alias cfgmt='dotcfg mergetool --no-prompt'
+alias cfgmtvim='dotcfg mergetool --no-prompt --tool=vimdiff'
+alias cfgmum='dotcfg merge upstream/master'
+alias cfgma='dotcfg merge --abort'
 
-alias cp='config push'
-alias cpd='config push --dry-run'
-alias cpf='config push --force-with-lease'
-alias cpf!='config push --force'
-alias cpoat='config push origin --all && config push origin --tags'
-alias cpu='config push upstream'
-alias cpv='config push -v'
+alias cfgp='dotcfg push'
+alias cfgpd='dotcfg push --dry-run'
+alias cfgpf='dotcfg push --force-with-lease'
+alias cfgpf!='dotcfg push --force'
+alias cfgpoat='dotcfg push origin --all && dotcfg push origin --tags'
+alias cfgpu='dotcfg push upstream'
+alias cfgpv='dotcfg push -v'
 
-alias cr='config remote'
-alias cra='config remote add'
-alias crb='config rebase'
-alias crba='config rebase --abort'
-alias crbc='config rebase --continue'
-alias crbd='config rebase develop'
-alias crbi='config rebase -i'
-alias crbm='config rebase master'
-alias crbs='config rebase --skip'
-alias crev='config revert'
-alias crh='config reset'
-alias crhh='config reset --hard'
-alias croh='config reset origin/$(git_current_branch) --hard'
-alias crm='config rm'
-alias crmc='config rm --cached'
-alias crmv='config remote rename'
-alias crrm='config remote remove'
-alias crs='config restore'
-alias crset='config remote set-url'
-alias crss='config restore --source'
-alias grt='cd "$(config rev-parse --show-toplevel || echo .)"'
-alias cru='config reset --'
-alias crup='config remote update'
-alias crv='config remote -v'
+alias cfgr='dotcfg remote'
+alias cfgra='dotcfg remote add'
+alias cfgrb='dotcfg rebase'
+alias cfgrba='dotcfg rebase --abort'
+alias cfgrbc='dotcfg rebase --continue'
+alias cfgrbd='dotcfg rebase develop'
+alias cfgrbi='dotcfg rebase -i'
+alias cfgrbm='dotcfg rebase master'
+alias cfgrbs='dotcfg rebase --skip'
+alias cfgrev='dotcfg revert'
+alias cfgrh='dotcfg reset'
+alias cfgrhh='dotcfg reset --hard'
+alias cfgroh='dotcfg reset origin/$(git_current_branch) --hard'
+alias cfgrm='dotcfg rm'
+alias cfgrmc='dotcfg rm --cached'
+alias cfgrmv='dotcfg remote rename'
+alias cfgrrm='dotcfg remote remove'
+alias cfgrs='dotcfg restore'
+alias cfgrset='dotcfg remote set-url'
+alias cfgrss='dotcfg restore --source'
+alias grt='cd "$(dotcfg rev-parse --show-toplevel || echo .)"'
+alias cfgru='dotcfg reset --'
+alias cfgrup='dotcfg remote update'
+alias cfgrv='dotcfg remote -v'
 
-alias csb='config status -sb'
-alias csd='config svn dcommit'
-alias csh='config show'
-alias csi='config submodule init'
-alias csps='config show --pretty=short --show-signature'
-alias csr='config svn rebase'
-alias css='config status -s'
-alias cst='config status'
+alias cfgsb='dotcfg status -sb'
+alias cfgsd='dotcfg svn dcommit'
+alias cfgsh='dotcfg show'
+alias cfgsi='dotcfg submodule init'
+alias cfgsps='dotcfg show --pretty=short --show-signature'
+alias cfgsr='dotcfg svn rebase'
+alias cfgss='dotcfg status -s'
+alias cfgst='dotcfg status'
 
 # use the default stash push on git 2.13 and newer
 autoload -Uz is-at-least
-is-at-least 2.13 "$(config --version 2>/dev/null | awk '{print $3}')" \
-  && alias csta='config stash push' \
-  || alias csta='config stash save'
+is-at-least 2.13 "$(dotcfg --version 2>/dev/null | awk '{print $3}')" \
+  && alias cfgsta='dotcfg stash push' \
+  || alias cfgsta='dotcfg stash save'
 
-alias cstaa='config stash apply'
-alias cstc='config stash clear'
-alias cstd='config stash drop'
-alias cstl='config stash list'
-alias cstp='config stash pop'
-alias csts='config stash show --text'
-alias cstall='config stash --all'
-alias csu='config submodule update'
-alias csw='config switch'
-alias cswc='config switch -c'
+alias cfgstaa='dotcfg stash apply'
+alias cfgstc='dotcfg stash clear'
+alias cfgstd='dotcfg stash drop'
+alias cfgstl='dotcfg stash list'
+alias cfgstp='dotcfg stash pop'
+alias cfgsts='dotcfg stash show --text'
+alias cfgstall='dotcfg stash --all'
+alias cfgsu='dotcfg submodule update'
+alias cfgsw='dotcfg switch'
+alias cfgswc='dotcfg switch -c'
 
-alias cts='config tag -s'
-alias ctv='config tag | sort -V'
-alias gtl='gtl(){ config tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
+alias cfgts='dotcfg tag -s'
+alias cfgtv='dotcfg tag | sort -V'
+alias gtl='gtl(){ dotcfg tag --sort=-v:refname -n -l "${1}*" }; noglob gtl'
 
-alias cunignore='config update-index --no-assume-unchanged'
-alias cunwip='config log -n 1 | grep -q -c "\-\-wip\-\-" && config reset HEAD~1'
-alias cup='config pull --rebase'
-alias cupv='config pull --rebase -v'
-alias cupa='config pull --rebase --autostash'
-alias cupav='config pull --rebase --autostash -v'
-alias clum='config pull upstream master'
+alias cfgunignore='dotcfg update-index --no-assume-unchanged'
+alias cfgunwip='dotcfg log -n 1 | grep -q -c "\-\-wip\-\-" && dotcfg reset HEAD~1'
+alias cfgup='dotcfg pull --rebase'
+alias cfgupv='dotcfg pull --rebase -v'
+alias cfgupa='dotcfg pull --rebase --autostash'
+alias cfgupav='dotcfg pull --rebase --autostash -v'
+alias cfglum='dotcfg pull upstream master'
 
-alias cwch='config whatchanged -p --abbrev-commit --pretty=medium'
-alias cwip='config add -A; config rm $(config ls-files --deleted) 2> /dev/null; config commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
+alias cfgwch='dotcfg whatchanged -p --abbrev-commit --pretty=medium'
+alias cfgwip='dotcfg add -A; dotcfg rm $(dotcfg ls-files --deleted) 2> /dev/null; dotcfg commit --no-verify --no-gpg-sign -m "--wip-- [skip ci]"'
