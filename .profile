@@ -1,3 +1,5 @@
+export PROFILE_LOADED=loaded
+
 export XDG_CONFIG_HOME="${HOME}/.config"
 
 # Path for fresh
@@ -24,6 +26,9 @@ export PATH="${PATH}:${ANDROID_HOME}/platform-tools"
 export PATH="${HOME}/.node_modules/bin:${PATH}"
 export PATH="${PATH}:${HOME}/.yarn/bin"
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+if [[ ! -d $NVM_DIR ]]; then
+  printf "Warning! nvm not installed! node/npm will not function. See https://github.com/nvm-sh/nvm#installation-and-update for instructions.\n"
+fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # PHP
