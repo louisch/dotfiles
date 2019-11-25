@@ -32,14 +32,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Python
 export PATH="${PATH}:${HOME}/.local/bin"
-case `uname` in
-  Darwin)
-    export PYTHON_SYSTEM_SITE_PACKAGES="/usr/local/lib/python3.7/site-packages"
-    ;;
-  Linux)
-    export PYTHON_SYSTEM_SITE_PACKAGES="/usr/lib/python3.7/site-packages"
-    ;;
-esac
+export PYTHON_SYSTEM_SITE_PACKAGES=$(python3 -m site | grep '^USER_SITE' | sed "s/USER_SITE: '//" | sed "s/' (exists)//")
 
 # Ruby
 export PATH="${PATH}:${HOME}/.gem/ruby/2.6.0/bin:/usr/local/lib/ruby/gems/2.6.0/bin/"
