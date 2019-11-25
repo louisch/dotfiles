@@ -29,7 +29,7 @@ function cfg_work_in_progress() {
 # (sorted alphabetically)
 #
 
-alias cfg='config'
+alias cfg='dotcfg'
 
 alias cfga='dotcfg add'
 alias cfgaa='dotcfg add --all'
