@@ -28,6 +28,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 # PHP
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 
 # Python
 export PATH="${PATH}:${HOME}/.local/bin"
