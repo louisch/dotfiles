@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export INTERACTIVE_LOADED=loaded
+
 if [[ ! "$PROFILE_LOADED" ]]; then
   source "${HOME}/.bash_profile"
 fi
